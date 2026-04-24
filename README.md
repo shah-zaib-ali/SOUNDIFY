@@ -1,151 +1,206 @@
-# 💼 Job Portal — Full-Stack Recruitment Platform
+# 🎵 Soundify
 
-A full-stack job portal web application built with ASP.NET and SQL Server, supporting dual-role authentication for **Employers** and **Job Seekers** with real-time messaging, interview scheduling, and application tracking.
+![C++](https://img.shields.io/badge/C++-17-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+![SFML](https://img.shields.io/badge/SFML-2.5+-8CC445?style=for-the-badge&logo=sfml&logoColor=white)
+![Windows](https://img.shields.io/badge/Windows-Only-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Complete-brightgreen?style=for-the-badge)
+![Data Structures](https://img.shields.io/badge/Data%20Structures-Custom%20Built-blueviolet?style=for-the-badge)
+
+> A fully-featured **console-based music player** built in **C++**, powered by the **SFML Audio** library.  
+> Play songs, manage playlists, browse genres, search tracks, and maintain a recently played history — all through an interactive terminal UI.
 
 ---
 
-## 🔐 Authentication
+## 📸 Preview
 
-| Feature | Details |
+```
+  ██████  ██████  ██    ██ ███    ██ ██████  ██ ███████ ██    ██
+ ██      ██    ██ ██    ██ ████   ██ ██   ██ ██ ██       ██  ██
+ ███████ ██    ██ ██    ██ ██ ██  ██ ██   ██ ██ █████     ████
+      ██ ██    ██ ██    ██ ██  ██ ██ ██   ██ ██ ██         ██
+ ██████   ██████   ██████  ██   ████ ██████  ██ ██         ██
+```
+
+---
+
+## 🚀 Features
+
+### 🎶 Music Playback
+- ▶️ Play, pause, resume, and stop songs
+- ⏱️ Real-time playback duration display
+- 🔁 Loop toggle (on/off)
+- ⏭️ Skip forward / ⏮️ skip backward between songs
+- 🎵 Smooth audio playback via **SFML Audio**
+
+### 📚 Song Management
+- 📂 Load and store songs from external files
+- 🔍 Search songs by name
+- 📋 Display all songs with metadata (name, artist, genre)
+
+### 📂 Playlist System
+- ➕ Create and ❌ delete playlists
+- 🎵 Add / remove songs from any playlist
+- 💾 Playlist data saved persistently to files
+- ▶️ Play songs directly from any playlist
+- 🕓 **Recently Played** playlist — auto-updated on every play
+
+### 🌲 Genre Browsing
+- 🌳 Genre hierarchy stored in a **complete binary tree**
+- 🔽 Navigate genre nodes to explore sub-genres
+- ⚡ Auto-generates a playlist of all songs matching a selected genre
+
+---
+
+## 🗃️ Data Structures Used
+
+| Structure | Purpose |
 |---|---|
-| Login Endpoint | `/Account/Login` |
-| Auth Method | Credential-based login |
-| Roles Supported | `Employer`, `Job Seeker` |
-| Database | SQL Server (direct credential verification) |
+| `Hash Table` | Fast O(1) average song lookup |
+| `Doubly Linked List` | Playlist management |
+| `Stack` | Recently played history |
+| `Queue` | Binary tree node insertion |
+| `Binary Tree` | Genre category navigation |
+| `Linked List (chaining)` | Hash collision resolution |
 
 ---
 
-## 👤 Job Seeker Features
-
-### 🪪 Profile Management
-- ✏️ Edit personal info, career details, and upload documents/media
-- 🖼️ Profile picture updates reflect **instantly** across the dashboard
-- 💾 All changes are automatically persisted to the database
-
-### 🧠 Skills
-- ➕ Add / remove professional skills via the **My Skills** page
-- 🔍 Skills are used as **filters** when browsing job listings
-- 📊 Skills count reflected in the **Activity Overview** dashboard widget
-
-### 💼 Browse & Save Jobs
-- 🌐 Browse live job listings posted by employers
-- 🔖 Save jobs for later — stored in the `SAVED_JOBS` table
-- 📋 Track saved jobs from the **My Job Tracker** page
-
-### 📨 Apply for Jobs
-- 🖱️ Apply directly from a job listing page
-- 📈 Application status tracked through three stages:
-
-```
-Pending  →  Interview  →  Approved
-```
-
-### 📁 My Applications Panel
-- 📄 View all submitted applications with their current status
-- 🗓️ See scheduled interview details (date, time, location/link, instructions)
-- 💬 Chat with the employer directly from the panel
-
-### 🔔 Notifications
-- ✅ Application approval alerts
-- 📅 Interview invitation notifications
-
----
-
-## 🏢 Employer Features
-
-### 🏷️ Company Profile
-- 🏢 Update company information and upload company logo
-- 🖼️ Logo appears on job listings and the employer dashboard
-
-### 📝 Post a Job
-- 📋 Fill in job title, description, requirements, salary, location, and type
-- 🚀 Posted jobs are **immediately visible** to job seekers upon publishing
-
-### 🗂️ Manage Jobs
-- 📊 View all posted jobs with status, post date, and expiry date
-- ⚡ Available actions per listing:
-
-```
-Preview  |  Edit  |  View Applicants  |  Delete
-```
-
-### 👥 Review Applications
-- 📄 View all applicants for a specific job listing
-- 📥 Download applicant resumes (PDF, auto-retrieved from job seeker profile)
-- ⚡ Available actions per applicant:
-
-```
-Approve  |  Reject  |  Schedule Interview  |  Message
-```
-
-### 🗓️ Schedule Interviews
-- 🎯 Set interview type: **Online** or **Offline**
-- 📅 Specify date, time, interviewer name & email
-- 🔗 Provide meeting link and instructions for the applicant
-- 📲 Scheduling details are **automatically pushed** to the job seeker's application panel
-
-### 💬 Real-Time Messaging
-- ⚡ Real-time chat between job seekers and employers
-- 🔁 Accessible from both sides:
-  - Job Seeker → **My Applications Panel**
-  - Employer → **Applicant View**
-
----
-
-## 🗄️ Tech Stack
+## 🛠️ Tech Stack
 
 | Layer | Technology |
 |---|---|
-| Backend | ASP.NET (MVC / Web Forms) |
-| Database | Microsoft SQL Server |
-| Auth | Role-based (Employer / Job Seeker) |
-| Messaging | Real-time Chat |
-| File Handling | PDF Resume Upload & Download |
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Visual Studio 2022+
-- SQL Server (LocalDB or full instance)
-- .NET Framework / .NET Core (based on project target)
-
-### Setup
-```bash
-# 1. Clone the repository
-git clone https://github.com/shah-zaib-ali/SOUNDIFY.git
-
-# 2. Open the solution in Visual Studio
-#    File → Open → Solution (.sln)
-
-# 3. Update the connection string in Web.config / appsettings.json
-#    to point to your SQL Server instance
-
-# 4. Run the database migration / setup script
-#    (located in /Database/schema.sql or via Package Manager Console)
-
-# 5. Build and run the project
-#    Press F5 or use IIS Express
-```
-
-### Default Login
-> Configure initial credentials in the database seed script or register via the signup flow.
+| Language | C++17 (OOP + Data Structures) |
+| Audio Engine | SFML 2.5+ (Audio Module) |
+| Console UI | Windows Console API (`windows.h`) |
+| Memory | Dynamic memory management (raw pointers) |
+| Storage | File I/O — `.txt` based persistent storage |
 
 ---
 
 ## 📁 Project Structure
 
 ```
-/Controllers        → MVC Controllers (Account, Job, Application, etc.)
-/Models             → Data models and ViewModels
-/Views              → Razor views for all pages
-/Database           → SQL scripts (schema, seed data)
-/wwwroot / Content  → Static assets (CSS, JS, images)
+Soundify/
+│
+├── main.cpp                  → Entry point, menu navigation
+│
+├── Song.h / Song.cpp         → Song metadata container
+├── Hash.h / Hash.cpp         → Hash table for fast song lookup
+├── Playlist.h / Playlist.cpp → Doubly linked list playlist manager
+├── Tree.h / Tree.cpp         → Binary tree for genre browsing
+├── Stack.h / Stack.cpp       → Recently played history stack
+├── Queue.h / Queue.cpp       → Queue for tree insertion
+│
+├── playMusic.cpp             → Playback controller (SFML)
+├── loadData.cpp              → Loads all songs on startup
+│
+└── D:/songs/
+    ├── songs.txt             → Master song metadata file
+    ├── Playlists.txt         → Saved playlists
+    ├── Recently Played.txt   → Auto-updated history
+    ├── <playlist>.txt        → Individual playlist files
+    └── *.wav / *.ogg         → Audio files
 ```
+
+---
+
+## ⚙️ How It Works
+
+```
+1. songs.txt loads on startup
+        ↓
+2. Each song is hashed and stored in the Hash Table
+        ↓
+3. User navigates the terminal menu:
+   ├── 🔍 Search songs
+   ├── ▶️  Play songs
+   ├── 📂 Manage playlists
+   └── 🌲 Explore genres via binary tree
+        ↓
+4. Live playback controlled via keyboard input (SFML)
+        ↓
+5. Recently Played stack auto-updates after each play
+```
+
+---
+
+## 🖥️ Requirements
+
+- ✅ Windows OS (`conio.h` + `windows.h` dependencies)
+- ✅ **SFML 2.5+** installed and linked
+- ✅ **C++17** or higher
+- ✅ Audio files and metadata placed in the correct folder:
+
+```
+D:\songs\
+  ├── songs.txt
+  ├── Playlists.txt
+  ├── Recently Played.txt
+  ├── <playlist>.txt
+  └── audio files (.wav / .ogg / .mp3)
+```
+
+---
+
+## 🔧 Build & Run
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/shah-zaib-ali/SOUNDIFY.git
+cd soundify
+```
+
+### 2. Install SFML
+Download SFML 2.5+ from [sfml-dev.org](https://www.sfml-dev.org/download.php) and link it to your project.
+
+### 3. Compile (g++ example)
+```bash
+g++ -std=c++17 main.cpp -o soundify -lsfml-audio -lsfml-system
+```
+
+### 4. Or open in Visual Studio
+- Set up SFML include/lib paths in project properties
+- Build and run with `F5`
+
+### 5. Place your audio files
+```
+D:\songs\
+```
+Populate `songs.txt` with your song metadata in the expected format.
+
+---
+
+## 🎮 Controls
+
+| Key | Action |
+|---|---|
+| `P` | Play / Pause |
+| `S` | Stop |
+| `N` | Next Song |
+| `B` | Previous Song |
+| `L` | Toggle Loop |
+| `Q` | Quit Playback |
+
+---
+
+## 📌 Future Improvements
+
+- [ ] 🖥️ GUI version using SFML Graphics module
+- [ ] 🌍 Cross-platform support (remove `windows.h` dependency)
+- [ ] 🔑 Improved hashing algorithm for song names
+- [ ] 🧠 Replace raw pointers with smart pointers (`unique_ptr`, `shared_ptr`)
+- [ ] 🗂️ JSON-based storage system (replace `.txt` files)
+- [ ] 🎚️ Volume control & equalizer
+- [ ] 🔎 Fuzzy search support
 
 ---
 
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
+
+---
+
+<p align="center">
+  Made with ❤️ and C++ — <strong>Soundify</strong>
+</p>
