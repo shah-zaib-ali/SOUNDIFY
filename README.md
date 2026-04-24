@@ -1,149 +1,151 @@
-🎵 Soundify – Console-Based Music Player (C++ & SFML)
+# 💼 Job Portal — Full-Stack Recruitment Platform
 
-Soundify is a fully-featured console music player built in C++, powered by the SFML Audio library. It allows users to play songs, manage playlists, browse genres, search tracks, and maintain a recently played history — all through an interactive terminal UI.
+A full-stack job portal web application built with ASP.NET and SQL Server, supporting dual-role authentication for **Employers** and **Job Seekers** with real-time messaging, interview scheduling, and application tracking.
 
-🚀 Features
-🎶 Music Playback
+---
 
-Play, pause, resume, and stop songs
+## 🔐 Authentication
 
-See real-time playback duration
+| Feature | Details |
+|---|---|
+| Login Endpoint | `/Account/Login` |
+| Auth Method | Credential-based login |
+| Roles Supported | `Employer`, `Job Seeker` |
+| Database | SQL Server (direct credential verification) |
 
-Loop songs on/off
+---
 
-Skip forward/backward between songs
+## 👤 Job Seeker Features
 
-Uses SFML Audio for smooth music playback
+### 🪪 Profile Management
+- ✏️ Edit personal info, career details, and upload documents/media
+- 🖼️ Profile picture updates reflect **instantly** across the dashboard
+- 💾 All changes are automatically persisted to the database
 
-📚 Song Management
+### 🧠 Skills
+- ➕ Add / remove professional skills via the **My Skills** page
+- 🔍 Skills are used as **filters** when browsing job listings
+- 📊 Skills count reflected in the **Activity Overview** dashboard widget
 
-Load and store songs from external files
+### 💼 Browse & Save Jobs
+- 🌐 Browse live job listings posted by employers
+- 🔖 Save jobs for later — stored in the `SAVED_JOBS` table
+- 📋 Track saved jobs from the **My Job Tracker** page
 
-Search songs by name
+### 📨 Apply for Jobs
+- 🖱️ Apply directly from a job listing page
+- 📈 Application status tracked through three stages:
 
-Display all songs with metadata (name, artist, genre)
+```
+Pending  →  Interview  →  Approved
+```
 
-📂 Playlist System
+### 📁 My Applications Panel
+- 📄 View all submitted applications with their current status
+- 🗓️ See scheduled interview details (date, time, location/link, instructions)
+- 💬 Chat with the employer directly from the panel
 
-Create and delete playlists
+### 🔔 Notifications
+- ✅ Application approval alerts
+- 📅 Interview invitation notifications
 
-Add/remove songs from playlists
+---
 
-Save playlist data to files
+## 🏢 Employer Features
 
-Play songs directly from any playlist
+### 🏷️ Company Profile
+- 🏢 Update company information and upload company logo
+- 🖼️ Logo appears on job listings and the employer dashboard
 
-Maintains a Recently Played playlist (auto-updated)
+### 📝 Post a Job
+- 📋 Fill in job title, description, requirements, salary, location, and type
+- 🚀 Posted jobs are **immediately visible** to job seekers upon publishing
 
-🌲 Genre Browsing (Binary Tree Based)
+### 🗂️ Manage Jobs
+- 📊 View all posted jobs with status, post date, and expiry date
+- ⚡ Available actions per listing:
 
-Genre hierarchy stored in a complete binary tree
+```
+Preview  |  Edit  |  View Applicants  |  Delete
+```
 
-Navigate genre nodes to select sub-genres
+### 👥 Review Applications
+- 📄 View all applicants for a specific job listing
+- 📥 Download applicant resumes (PDF, auto-retrieved from job seeker profile)
+- ⚡ Available actions per applicant:
 
-Auto-generate playlists of all songs matching a selected genre
+```
+Approve  |  Reject  |  Schedule Interview  |  Message
+```
 
-🗃️ Data Structures Used
+### 🗓️ Schedule Interviews
+- 🎯 Set interview type: **Online** or **Offline**
+- 📅 Specify date, time, interviewer name & email
+- 🔗 Provide meeting link and instructions for the applicant
+- 📲 Scheduling details are **automatically pushed** to the job seeker's application panel
 
-This project showcases heavy use of custom data structures:
+### 💬 Real-Time Messaging
+- ⚡ Real-time chat between job seekers and employers
+- 🔁 Accessible from both sides:
+  - Job Seeker → **My Applications Panel**
+  - Employer → **Applicant View**
 
-Hash Table for fast song lookup
+---
 
-Doubly Linked List for playlists
+## 🗄️ Tech Stack
 
-Stack for recently played history
+| Layer | Technology |
+|---|---|
+| Backend | ASP.NET (MVC / Web Forms) |
+| Database | Microsoft SQL Server |
+| Auth | Role-based (Employer / Job Seeker) |
+| Messaging | Real-time Chat |
+| File Handling | PDF Resume Upload & Download |
 
-Queue for tree insertion
+---
 
-Binary Tree for genre navigation
+## 🚀 Getting Started
 
-Linked Lists for hash collisions
+### Prerequisites
+- Visual Studio 2022+
+- SQL Server (LocalDB or full instance)
+- .NET Framework / .NET Core (based on project target)
 
-🖥️ Console UI
+### Setup
+```bash
+# 1. Clone the repository
+git clone https://github.com/your-username/your-repo-name.git
 
-Personalized ASCII logo
+# 2. Open the solution in Visual Studio
+#    File → Open → Solution (.sln)
 
-Centered UI elements
+# 3. Update the connection string in Web.config / appsettings.json
+#    to point to your SQL Server instance
 
-Keyboard-controls for live playback
+# 4. Run the database migration / setup script
+#    (located in /Database/schema.sql or via Package Manager Console)
 
-User-friendly menu system
+# 5. Build and run the project
+#    Press F5 or use IIS Express
+```
 
-🛠️ Technologies Used
+### Default Login
+> Configure initial credentials in the database seed script or register via the signup flow.
 
-C++ (OOP + Data Structures)
+---
 
-SFML (Simple and Fast Multimedia Library) – Audio Module
+## 📁 Project Structure
 
-Windows Console API (Windows.h)
+```
+/Controllers        → MVC Controllers (Account, Job, Application, etc.)
+/Models             → Data models and ViewModels
+/Views              → Razor views for all pages
+/Database           → SQL scripts (schema, seed data)
+/wwwroot / Content  → Static assets (CSS, JS, images)
+```
 
-Dynamic Memory Management
+---
 
-File I/O for persistent storage
+## 📄 License
 
-📁 Project Structure
-
-Song — container for song metadata
-
-Hash / HashNode — hash table to store songs
-
-Playlist / PNode — doubly linked list managing playlists
-
-Tree / TNode — binary tree storing genre categories
-
-Stack — managing recently played list
-
-Queue — tree insertion
-
-playMusic() — playback controller
-
-loadData() — loads all songs on startup
-
-📄 How It Works
-
-songs.txt loads all music data
-
-The program hashes and stores each song
-
-The user navigates menus to:
-
-Search songs
-
-Play songs
-
-Manage playlists
-
-Explore genres
-
-Playback is live-controlled using keyboard input
-
-Recently Played list automatically updates
-
-▶️ Requirements
-
-SFML 2.5+
-
-C++17 or higher
-
-Windows OS (due to conio.h and Windows.h)
-
-Place songs and metadata in the correct folder structure:
-
-D:\songs\
-  ├── songs.txt
-  ├── Playlists.txt
-  ├── Recently Played.txt
-  ├── <playlist>.txt
-  └── audio files (.wav/.ogg/.mp3 supported by SFML)
-
-📌 Future Improvements
-
-GUI version using SFML Graphics
-
-Cross-platform support
-
-Better hashing for names
-
-Replace raw pointers with smart pointers
-
-JSON-based storage system
+This project is licensed under the [MIT License](LICENSE).
