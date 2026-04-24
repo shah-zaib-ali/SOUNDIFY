@@ -114,7 +114,7 @@ Approve  |  Reject  |  Schedule Interview  |  Message
 ### Setup
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/shah-zaib-ali/SOUNDIFY.git
 
 # 2. Open the solution in Visual Studio
 #    File → Open → Solution (.sln)
