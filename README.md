@@ -201,6 +201,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-<p align="center">
-  Made with ❤️ and C++ — <strong>Soundify</strong>
 </p>
